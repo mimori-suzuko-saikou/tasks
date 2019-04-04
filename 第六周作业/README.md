@@ -8,6 +8,6 @@
 2、请自学：https://blog.csdn.net/waple_0820/article/details/70049953  
   
 请尝试用大家学过的数据序列，生成一个CSV文件，在Excel中打开的结果是：  
-
+![](./作业图片/图片.png)  
 
 3、请尝试读CSV文件：aapl.csv。请给出全部数据中Volume的平均值。  
