@@ -4,13 +4,11 @@
 
 import pandas
 import numpy
-import os
+import tkinter.filedialog
 
-path=input('请输入aapl.csv的路径')
+fd=tkinter.filedialog.askopenfilename(filetypes=[('aapl.csv','aapl.csv')],initialdir='./')
 
-if 'aapl.csv' in os.listdir(path):
-    aapl=pandas.read_csv(path+'/aapl.csv')
+if type(fd)==str:
+    aapl=pandas.read_csv(fd)
     Vol=aapl['Volume']
     print('Volume的平均值是:',numpy.average(Vol))
-else:
-    print('找不到aapl.csv')
