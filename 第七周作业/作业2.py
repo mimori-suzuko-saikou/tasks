@@ -45,7 +45,7 @@ def date_input_to_date_exists(*dates):
                 if d == '月考':
                     d_=d
                 elif date1<=d:
-                    if d_:
+                    if d == '10.27':
                         date1=d_
                     else:
                         date1=d
@@ -55,7 +55,7 @@ def date_input_to_date_exists(*dates):
                 if d == '月考2':
                     d_=d
                 elif date1<=d:
-                    if d_:
+                    if d == '4.13':
                         date1=d_
                     else:
                         date1=d
@@ -65,7 +65,7 @@ def date_input_to_date_exists(*dates):
 
 date1,date2=date_input_to_date_exists(date1,date2)
 pos1=int(np.where(data==date1)[1])
-pos2=int(np.where(data==date2)[1]+1)
+pos2=int(np.where(data==date2)[1])
 date=data[0,pos1:pos2]
 
 plt.rcParams['figure.figsize'] = (16,9)                         #输出图片
