@@ -9,7 +9,7 @@ from scipy.optimize import leastsq
 
 def func(x, A, k, theta, C):
     """
-    数据拟合所用的函数: A*sin(2*pi*k*x + theta)
+    数据拟合所用的函数: A*sin(2*pi*k*x + theta)+C
     """
     return A*np.sin(2*np.pi*k*x+theta)+C   
 
@@ -20,6 +20,11 @@ def residuals(p,x,y):
     A, k, theta, C =p
     return y-func(x, A, k, theta, C)
 
+'''
+x0:绘图用，增加取值以画出平滑曲线
+x,y1:实测数据
+p0:拟合初值
+'''
 x = np.arange(0,49,3)
 x0 = np.linspace(0,48,100) 
 y1 = np.array([48.5,52.6,27.0,-13.8,-38.0,-29.5,-4.9,25.2,48.6,53.2,26.7,-16.1,-39.4,-29.9,-3.5,25.2,48.5])
@@ -31,6 +36,6 @@ print("拟合参数", plsq[0])
 font=matplotlib.font_manager.FontProperties(fname='/usr/share/fonts/truetype/arphic/uming.ttc')
 
 plt.plot(x, y1, label=u"实验数据")
-plt.plot(x0, func(x0,*plsq[0]), label=u"拟合数据")
+plt.plot(x0, func(x0,*plsq[0]), label=u"拟合数据")          #拟合参数代入方程得到拟合方程
 plt.legend(prop=font)
 plt.show()

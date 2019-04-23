@@ -7,16 +7,17 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager
 from scipy.optimize import curve_fit 
 
-font=matplotlib.font_manager.FontProperties(fname='/usr/share/fonts/truetype/arphic/uming.ttc')
+font = matplotlib.font_manager.FontProperties(fname='/usr/share/fonts/truetype/arphic/uming.ttc')
 
-tempmax=np.array([17, 19, 21, 28, 33, 38, 37, 37, 31, 23, 19, 18]*3)
-tempmin=np.array([-62, -59, -56, -46, -32, -18, -9, -13, -25, -46, -52, -58]*3)
-month=np.array([i for i in range(1,37)])
+#把一年数据复制三次进行拟合
+tempmax = np.array([17, 19, 21, 28, 33, 38, 37, 37, 31, 23, 19, 18]*3)
+tempmin = np.array([-62, -59, -56, -46, -32, -18, -9, -13, -25, -46, -52, -58]*3)
+month = np.array([i for i in range(1,37)])
 
 def func(time,A,k,theta,C):
     '''
     温度T对于时间t的函数:周期为k，omiga=2pi/k
-    T=A*sin(omiga*time+theta)**n+C
+    T=A*sin(omiga*time+theta)+C
     '''
     return A*np.sin(2*np.pi/k*time+theta)+C
 
