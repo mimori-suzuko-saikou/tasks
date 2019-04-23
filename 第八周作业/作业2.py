@@ -21,10 +21,10 @@ def func(time,A,k,theta,C):
     '''
     return A*np.sin(2*np.pi/k*time+theta)+C
 
-p0=(10,12,-2,27)
-p1=(25,12,-2,-40)
-popt1,pcov=curve_fit(func,month,tempmax,p0=p0)
-popt2,pcov=curve_fit(func,month,tempmin,p0=p0)
+p0=(10,12,-2,27)            #最高温拟合
+p1=(25,12,-2,-40)           #最低温拟合
+popt1,pcov1=curve_fit(func,month,tempmax,p0=p0)         #popt，pcov分别为拟合参数和协方差
+popt2,pcov2=curve_fit(func,month,tempmin,p0=p0)
 print(popt1,popt2)
 
 x=np.linspace(1,36,100)
